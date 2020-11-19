@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { FileItem } from '../models/file-item';
-import { AngularFireStorage } from '@angular/fire/storage/storage';
+import 'firebase/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class CargaImagenesService {
   constructor(private db: AngularFirestore) { }
 
   cargarImagenesFirebase(imagenes: FileItem[]){
+
     const storageRef = firebase.storage().ref();
 
     for(const item of imagenes){
